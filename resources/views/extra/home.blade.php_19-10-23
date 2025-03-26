@@ -1,0 +1,645 @@
+@extends('layout/header')
+@section('title','Market Advisor')
+@section('content')
+<!-- banner slider start -->
+<section class="hero-banners mb-5">
+   <div>
+      <div class="banner-with-text">
+         <div class="banner-image">
+            <?php $data =\DB::table('banner')->orderBy('id','DESC')->first(); ?>
+            <img src="{{url('public/uploads/banner')}}/{{$data->banner_image}}" class="img-fluid" alt="image-carousel">
+         </div>
+         <div class="pull-up-text">
+            <div class="banner-content">
+               <h3 class="white-color">{{$data->banner_title}}<span class="bright-span"></span></h3>
+               <h1 class="banner-title mb-4">
+               {{$data->banner_desc}}</p>
+               <div class="read-more" data-aos="fade-up" data-aos-duration="1500">
+                  <a href="{{url('read-more')}}" class="btn btn-primary banner-btn" tabindex="-1">Read More</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- about us section gose here -->
+<section class="about-us">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12 text-center">
+            <h2 class="global-title">
+               Industries Served
+            </h2>
+         </div>
+      </div>
+      <div class="row flip-boxes">
+         <div class="col-md-3">
+            <div class="flip-container">
+               <div class="flip-box">
+                  <div class="flip-box-front">
+                     <div>
+                        <div class="w-100">
+                           <img src="{{url('public/img/aerospace8-min.webp')}}" class="img-fluid served-icons" alt="">
+                        </div>
+                        <div class="w-100">
+                           <p class="industries-title">Aerospace & Defense</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="flip-box-back">
+                     <ul class="back-list">
+                        <h6 class="back-heading">Aerospace &amp; Defense</h6>
+                        <li>Space Exploration</li>
+                        <li>Aircraft Equipment &amp; Components</li>
+                        <li>Armed Vehicles &amp; Ammunition</li>
+                        <li>Avionics &amp; Electrical System</li>
+                        <li>Security &amp; Surveillance</li>
+                        <li>Unmanned Aerial Vehicles</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="flip-container">
+               <div class="flip-box">
+                  <div class="flip-box-front">
+                     <div>
+                        <div class="w-100">
+                           <img src="{{url('public/img/automobile4-min.webp')}}" class="img-fluid served-icons" alt="">
+                        </div>
+                        <div class="w-100">
+                           <p class="industries-title">Automotive</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="flip-box-back">
+                     <ul class="back-list">
+                        <h6 class="back-heading">Automotive</h6>
+                        <li>Automobiles</li>
+                        <li>Autonomous &amp; Electric Vehicles</li>
+                        <li>Driving Support &amp; Security</li>
+                        <li>Automotive Components &amp; Materials</li>
+                        <li>Automotive Electronics &amp; Electrical Equipment's</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="flip-container">
+               <div class="flip-box">
+                  <div class="flip-box-front">
+                     <div>
+                        <div class="w-100">
+                           <img src="{{url('public/img/buildingconst3-min.webp')}}" class="img-fluid served-icons" alt="">
+                        </div>
+                        <div class="w-100">
+                           <p class="industries-title">Buildings, Construction, Metals & Mining</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="flip-box-back">
+                     <ul class="back-list">
+                        <h6 class="back-heading">Buildings, Construction, Metals &amp; Mining</h6>
+                        <li>Building Management</li>
+                        <li>Construction Material</li>
+                        <li>Construction Technology</li>
+                        <li>Construction Equipment</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="flip-container">
+               <div class="flip-box">
+                  <div class="flip-box-front">
+                     <div>
+                        <div class="w-100">
+                           <img src="{{url('public/img/chemicals3-min.webp')}}" class="img-fluid served-icons" alt="">
+                        </div>
+                        <div class="w-100">
+                           <p class="industries-title">Chemicals </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="flip-box-back">
+                     <ul class="back-list">
+                        <h6 class="back-heading">Chemicals</h6>
+                        <li>Polymers</li>
+                        <li>Coatings, Adhesives &amp; Pigments</li>
+                        <li>Specialty Chemicals &amp; Other Chemicals</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="flip-container">
+               <div class="flip-box">
+                  <div class="flip-box-front">
+                     <div>
+                        <div class="w-100">
+                           <img src="{{url('public/img/energy3-min.webp')}}" class="img-fluid served-icons" alt="">
+                        </div>
+                        <div class="w-100">
+                           <p class="industries-title">Energy </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="flip-box-back">
+                     <ul class="back-list">
+                        <h6 class="back-heading">Energy</h6>
+                        <li>Industrial Equipment</li>
+                        <li>Green Economy</li>
+                        <li>Oil &amp; Gas and Petrochemicals</li>
+                        <li>Power Storage</li>
+                        <li>Power Generation, Transmission &amp; Distribution</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="flip-container">
+               <div class="flip-box">
+                  <div class="flip-box-front">
+                     <div>
+                        <div class="w-100">
+                           <img src="{{url('public/img/environmental3-min.webp')}}" class="img-fluid served-icons" alt="">
+                        </div>
+                        <div class="w-100">
+                           <p class="industries-title">Environment </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="flip-box-back">
+                     <ul class="back-list">
+                        <h6 class="back-heading">Environment</h6>
+                        <li>Agriculture</li>
+                        <li>HVAC</li>
+                        <li>Air Technology</li>
+                        <li>Water Technologies</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="flip-container">
+               <div class="flip-box">
+                  <div class="flip-box-front">
+                     <div>
+                        <div class="w-100">
+                           <img src="{{url('public/img/fastmoving3-min.webp')}}" class="img-fluid served-icons" alt="">
+                        </div>
+                        <div class="w-100">
+                           <p class="industries-title">FMCG </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="flip-box-back">
+                     <ul class="back-list">
+                        <h6 class="back-heading">FMCG</h6>
+                        <li>Consumer Goods and Retail</li>
+                        <li>Clothing &amp; Personal Care</li>
+                        <li>Consumer Electronics</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="flip-container">
+               <div class="flip-box">
+                  <div class="flip-box-front">
+                     <div>
+                        <div class="w-100">
+                           <img src="{{url('public/img/fintech3-min.webp')}}" class="img-fluid served-icons" alt="">
+                        </div>
+                        <div class="w-100">
+                           <p class="industries-title">FinTech </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="flip-box-back">
+                     <ul class="back-list">
+                        <h6 class="back-heading">FinTech</h6>
+                        <li>Omnichannel</li>
+                        <li>Digital Banking</li>
+                        <li>Core Banking</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="flip-container">
+               <div class="flip-box">
+                  <div class="flip-box-front">
+                     <div>
+                        <div class="w-100">
+                           <img src="{{url('public/img/food3-min.webp')}}" class="img-fluid served-icons" alt="">
+                        </div>
+                        <div class="w-100">
+                           <p class="industries-title">Food & Beverages </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="flip-box-back">
+                     <ul class="back-list">
+                        <h6 class="back-heading">Food &amp; Beverages</h6>
+                        <li>Food Supplements &amp; Additives</li>
+                        <li>Food Logistics, Warehousing &amp; Storage</li>
+                        <li>Food Testing &amp; Packaging</li>
+                        <li>Packaged &amp; Processed Food /Beverages</li>
+                        <li>Food Ingredients</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="flip-container">
+               <div class="flip-box">
+                  <div class="flip-box-front">
+                     <div>
+                        <div class="w-100">
+                           <img src="{{url('public/img/health3-min.webp')}}" class="img-fluid served-icons" alt="">
+                        </div>
+                        <div class="w-100">
+                           <p class="industries-title">Healthcare </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="flip-box-back">
+                     <ul class="back-list">
+                        <h6 class="back-heading">Healthcare</h6>
+                        <li>Life Sciences &amp; pharmaceuticals</li>
+                        <li>Healthcare IT</li>
+                        <li>Robotics &amp; Medical Imaging</li>
+                        <li>Medical Services</li>
+                        <li>Medical Devices &amp; Test Equipment</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="flip-container">
+               <div class="flip-box">
+                  <div class="flip-box-front">
+                     <div>
+                        <div class="w-100">
+                           <img src="{{url('public/img/it-telcome2-min.webp')}}" class="img-fluid served-icons" alt="">
+                        </div>
+                        <div class="w-100">
+                           <p class="industries-title">ICT & Electronics </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="flip-box-back">
+                     <ul class="back-list">
+                        <h6 class="back-heading">ICT &amp; Electronics</h6>
+                        <li>Electronic Equipment &amp; Services</li>
+                        <li>Software &amp; Services</li>
+                        <li>IT Security</li>
+                        <li>IoT &amp; Digital Solutions</li>
+                        <li>Data Centers &amp; Networking</li>
+                        <li>Artificial Intelligence &amp; Robotics</li>
+                        <li>Analytics</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="flip-container">
+               <div class="flip-box">
+                  <div class="flip-box-front">
+                     <div>
+                        <div class="w-100">
+                           <img src="{{url('public/img/tire12-min.webp')}}" class="img-fluid served-icons" alt="">
+                        </div>
+                        <div class="w-100">
+                           <p class="industries-title">Tire </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="flip-box-back">
+                     <ul class="back-list">
+                        <h6 class="back-heading">Tire</h6>
+                        <li>Off the Road Vehicle Tire</li>
+                        <li>Performance Tire</li>
+                        <li>Comprehensive Tire Reports</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- about us section end here -->
+<!-- secent upcomming report section -->
+<section class="upcomming-report bottom-space">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <h2 class="global-title text-center">
+               RECENT & UPCOMING REPORTS
+            </h2>
+         </div>
+      </div>
+      <div class="row report-box-main">
+         <?php $data =\DB::table('reports')->orderBy('id','DESC')->take(8)->get(); ?>
+         @foreach($data as $datas)
+         <div class="col-md-3">
+            
+            <a href="" class="black">
+               <div class="report-box">
+                  <div class="report-image">
+                     <img src="{{url('public/img/recent.webp')}}" class="img-fluid" alt="">
+                  </div>
+                  <div class="report-content">
+                     <p class="report-title mb-2">{{substr($datas->title, '0','32').' ...' }}</p>
+                     <div class="report-date-page d-flex align-items-center justify-content-between ">
+                        <p><i class="fa fa-calendar" aria-hidden="true"></i><span> {{ Carbon\Carbon::parse($datas->created_date_time)->format('M Y') }}</span></p>
+                        <p>{{"Pages ".$datas->no_of_page}}</p>
+                     </div>
+                  </div>
+               </div>
+            </a>
+            
+         </div>
+         @endforeach
+      </div>
+      <div class="row pt-4">
+         <div class="col-md-12 text-center">
+            <a href="{{url('research-report-main')}}" class="btn btn-primary banner-btn" tabindex="-1">Load More</a>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- blog section start -->
+<section class="blog-notes bottom-space">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-6">
+            <div class="blog-box">
+               <h3 class="blog-main-titl">Press Release</h3>
+               <?php $data =\DB::table('press_release')->orderBy('id','ASC')->take(3)->get(); ?>
+               @foreach($data as $datas)
+               <div class="release-listing">
+                  <p class="mb-0 blog_titles">{{$datas->heading}}
+                  </p>
+                  <a href="{{url('press-release')}}/{{$datas->id}}" class="read-more-blog blue">Read More....</a>
+                  <p class="fs-12 mb-0">Published Date : {{ Carbon\Carbon::parse($datas->created_date_time)->format('M Y') }}</p>
+               </div>
+               @endforeach
+               <a href="{{url('press-release')}}" class="btn btn-primary">View More</a>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="blog-box">
+               <h3 class="blog-main-titl">Blogs</h3>
+               <div class="release-listing">
+                  <p class="mb-0 blog_titles">Geofoam Industry Expands in A Bid to Suffice Construction Projects
+                     Worldwide
+                  </p>
+                  <a href="" class="read-more-blog blue">Read More....</a>
+                  <p class="fs-12 mb-0">Published Date : Nov 2023</p>
+               </div>
+               <div class="release-listing">
+                  <p class="mb-0 blog_titles">Geofoam Industry Expands in A Bid to Suffice Construction Projects
+                     Worldwide
+                  </p>
+                  <a href="" class="read-more-blog blue">Read More....</a>
+                  <p class="fs-12 mb-0">Published Date : Nov 2023</p>
+               </div>
+               <div class="release-listing">
+                  <p class="mb-0 blog_titles">Geofoam Industry Expands in A Bid to Suffice Construction Projects
+                     Worldwide
+                  </p>
+                  <a href="" class="read-more-blog blue">Read More....</a>
+                  <p class="fs-12 mb-0">Published Date : Nov 2023</p>
+               </div>
+               <a href="" class="btn btn-primary">View More</a>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- blog section end -->
+<!-- our serices  -->
+<section class="our-services bottom-space">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12 text-center">
+            <h2 class="global-title">
+               OUR SERVICES
+            </h2>
+         </div>
+      </div>
+      <div class="row service-main">
+         <div class="col-md-3">
+            <div class="service-box">
+               <div class="">
+                  <img src="{{url('public/img/Customized Research.webp')}}" class="img-fluid w-100" alt="">
+               </div>
+               <div class="p-3 service-content-box">
+                  <h5 class="mb-1 fw-800">Customized Research</h5>
+                  <p class="fs-15 mb-2">In order to serve our clients the best, we customize the report as per your
+                     specific research requirements.
+                  </p>
+                  <a href="" class="fw-600" tabindex="0">Read More <i class="fa fa-arrow-right fs-14"></i></a>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="service-box">
+               <div class="">
+                  <img src="{{url('public/img/Syndicated.webp')}}" class="img-fluid w-100" alt="">
+               </div>
+               <div class="p-3 service-content-box">
+                  <h5 class="mb-1 fw-800">Syndicated Research</h5>
+                  <p class="fs-15 mb-2">These reports are tailored after consultation with industry experts. The key
+                     highlights include market sizing and forecast
+                  </p>
+                  <a href="" class="fw-600" tabindex="0">Read More <i class="fa fa-arrow-right fs-14"></i></a>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="service-box">
+               <div class="">
+                  <img src="{{url('public/img/Consulting.webp')}}" class="img-fluid w-100" alt="">
+               </div>
+               <div class="p-3 service-content-box">
+                  <h5 class="mb-1 fw-800">Consulting Services</h5>
+                  <p class="fs-15 mb-2">In order to help our clients succeed and achieve their targets, our
+                     consulting services provide detailed quantitative
+                  </p>
+                  <a href="" class="fw-600" tabindex="0">Read More <i class="fa fa-arrow-right fs-14"></i></a>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="service-box">
+               <div class="">
+                  <img src="{{url('public/img/Fulltime.webp')}}" class="img-fluid w-100" alt="">
+               </div>
+               <div class="p-3 service-content-box">
+                  <h5 class="mb-1 fw-800">Full Time Analyst</h5>
+                  <p class="fs-15 mb-2">To serve our clients better, we also provide full-time analyst support. The
+                     analysts are chosen by our clients
+                  </p>
+                  <a href="" class="fw-600" tabindex="0">Read More <i class="fa fa-arrow-right fs-14"></i></a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- our serices  end -->
+<section class="fast-fact mb-5">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12 text-center">
+            <h2 class="global-title black">
+               Fast Facts
+            </h2>
+         </div>
+      </div>
+      <div class="row clients-counter">
+         <div class="col-md-3">
+            <div class="text-center">
+               <img src="{{url('public/img/client.svg')}}" class="mb-2" alt="">
+               <h3 class="fw-600 mb-0"><span id="counter1">1000</span><span>+</span></h3>
+               <p class="mb-0">Clients</p>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="text-center">
+               <img src="{{url('public/img/countriess.svg')}}" class="mb-2" alt="">
+               <h3 class="fw-600 mb-0"><span id="counter2"></span><span>+</span></h3>
+               <p class="mb-0">Countries Covered</p>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="text-center">
+               <img src="{{url('public/img/customized reports (1).svg')}}" class="mb-2" alt="">
+               <h3 class="fw-600 mb-0"><span id="counter3"></span><span>+</span></h3>
+               <p class="mb-0">Customized Reports
+               </p>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="text-center">
+               <img src="{{url('public/img/customized reports (1).svg')}}" class="mb-2" alt="">
+               <h3 class="fw-600 mb-0"><span id="counter4"></span><span>+</span></h3>
+               <p class="mb-0">Emerging Technologies</p>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- what our client say -->
+<section class="client-say bottom-space">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12 text-center">
+            <h2 class="global-title ">
+               WHAT OUR CLIENTS SAY ABOUT US
+            </h2>
+         </div>
+      </div>
+      <div class="row main-clients">
+         <div class="col-md-4">
+            <div class="client-say-box">
+               <p>We have cross-validated your information with our sales and marketing guys on the field and your
+                  findings represent the true picture. This is the first time a research firm has not shown us
+                  disappointment. I like the way your team keeps sharing the new developments or changes in the
+                  industry even after the completion of our mutual contract. I really appreciate your client caring
+                  attitude. Keep going!
+               </p>
+               <p class="mb-0 client-name">
+                  Country Head
+                  (A leading Latin American Energy Conglomerate)
+               </p>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="client-say-box">
+               <p>We were very impressed with the thoroughness of the research, professionalism, calibre, detail, and
+                  robustness of the work, as well as with how MarkNtel went above and beyond to encourage us to
+                  consider our strategies and the originality of the analytical framework used to support them, to
+                  name just a few facets of the engagement. We were pleasantly surprised by the analysis's results
+                  and recommendations, which well above our initial projections.
+               </p>
+               <p class="mb-0 client-name">
+                  Business head
+                  Pharmaceutical Giant
+               </p>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="client-say-box">
+               <p>We received assistance from MarkNtel when we outsourced a sizable portion of clinical trials to
+                  India. We were initially dubious about this concept, but the success we've had with it has
+                  encouraged us to outsource other company segments to low-cost locations.
+               </p>
+               <p class="mb-0 client-name">
+                  Head of Planning
+                  A FMCG Company
+               </p>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- what our client say end -->
+<!-- latest report or blog section start -->
+<section class="report-section pb-5 ">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12 text-center">
+            <h2 class="global-title ">
+               FEW OF OUR CLIENTS
+            </h2>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-12">
+            <div class="client_logo">
+               <div>
+                  <img src="{{url('public/img/2000px-Veolia-Logo_svg_.png')}}" class="img-fluid client-logo" alt="">
+               </div>
+               <div>
+                  <img src="{{url('public/img/Amcor-logo-1024.png')}}" class="img-fluid client-logo" alt="">
+               </div>
+               <div>
+                  <img src="{{url('public/img/Carrier-Logo.png')}}" class="img-fluid client-logo" alt="">
+               </div>
+               <div>
+                  <img src="{{url('public/img/inmarsat-logo-color1.png')}}" class="img-fluid client-logo" alt="">
+               </div>
+               <div>
+                  <img src="{{url('public/img/L3-Harris-logo-2019.png')}}" class="img-fluid client-logo" alt="">
+               </div>
+               <div>
+                  <img src="{{url('public/img/Michelin-Embleme.png')}}" class="img-fluid client-logo" alt="">
+               </div>
+               <div>
+                  <img src="{{url('public/img/oc-oerlikon-corporation-ag-pfaffikon.png')}}" class="img-fluid client-logo" alt="">
+               </div>
+               <div>
+                  <img src="{{url('public/img/polycom-logo-R-h-cmyk-2000px.png')}}" class="img-fluid client-logo" alt="">
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+@endsection

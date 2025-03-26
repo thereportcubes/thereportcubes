@@ -1,0 +1,41 @@
+ .cart_count {
+       margin-top: -26px !important;
+    display: block;
+    position: relative;
+    background: var(--secondary-color);
+    top: -16px;
+    right: -12px;
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+    margin: 0;
+    padding: 4px 0 0;
+    font-weight: 700;
+}
+ .mini-banner { background-size: cover;background-repeat: no-repeat;}
+ .cookie-banner { z-index: 999999;}
+.hero_top .slick-prev {top: unset !important;right: unset !important;left: 48% !important;bottom: 10px !important;z-index: 999;}
+.hero_top .slick-next.slick-arrow {top: unset !important;right: 48% !important;bottom: 10px !important;z-index: 999999;}
+.hero_top .slick-slide {margin: 0px;}
+.whatsApp_now {position: fixed;bottom: 10px; right: 10px; max-width: 55px;}
+ #myBtn {display: none;position: fixed;bottom: 90px; right: 35px; z-index: 99; font-size: 18px;  border: none; outline: none; cursor: pointer; border-radius: 4px; max-width: 40px;background-color: transparent;}
+ .icon-researchs {cursor: pointer;}
+ @media(max-width:768px){
+    .cart_count {top: -14px !important;}
+    .main-content {margin-top: unset !important;}
+    .hero_top .slick-next.slick-arrow {right: 45% !important;}
+    .hero_top .slick-prev {right: unset !important; left: 35% !important;}
+    .pagination li { margin-bottom: 10px;}
+    .pagination {flex-wrap: wrap;}
+}
+@media(max-width:450px){.tab-area .nav-link {font-size: 14px;padding-left: 4px; padding-right: 4px;}}
+/*.goog-te-gadget img {display:none;}
+ #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span:first-child{display: none;}
+ #google_translate_element .goog-te-gadget-simple .goog-te-menu-value:before{content: 'Select Language'}
+ .cookie-banner {position:fixed;bottom:0;left:0;width:100%; background-color: #f1f1f1;padding: 10px; text-align: center;}
+.goog-te-combo{background-color: #ccc5c5;}
+ .goog-te-gadget-simple{background-color: ; border-left: 1px solid #ccc5c5; border-top: 1px solid #ccc5c5; border-bottom: 1px solid #ccc5c5;border-right: 1px solid #ccc5c5;}
+ .iti--separate-dial-code{width:100%!important;}*/

@@ -1,0 +1,46 @@
+.services a{
+    text-decoration:none; 
+ }
+ .service-items{
+   display: block;
+    padding: 33px 10px;
+    background-color: #fff;
+    color: #454748;
+    border-radius: 5px;
+    box-shadow: 0 4px 40px rgba(0, 0, 0, .1);
+    transition: all .25s;
+    min-height: 297px;
+}
+ }
+ .service-items:hover{
+    background-color:#cfcfcf;
+    cursor:pointer;  
+       
+ }
+
+ .ram-about-services-item-icon svg {
+  width: auto;
+  height: 50px;
+  fill: #c00000;
+ }
+ .ram-about-services-item-title {
+    margin: 1em 0 0.5em;
+    color: #c00000;
+    transition: inherit;
+ }
+ .ram-about-services-item-description{
+    line-height: 23px;
+ }
+ .industry-served{
+   padding: 10px; 
+   background-color:#f8f8f8; 
+   text-align:center; 
+   border-radius:10px;
+   border: 1px solid #f4c5c5;
+}
+.home-banner{
+   background-image: url(../images/home-banner.jpg);
+   background-repeat: no-repeat, repeat;
+   background-position: center;
+   background-size: cover;   
+}

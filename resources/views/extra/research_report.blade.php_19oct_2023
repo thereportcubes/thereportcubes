@@ -1,0 +1,122 @@
+@extends('layout/header')
+@section('title','Upcoming Report')
+
+@section('content')
+
+<section class="mini-banner">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <h1 class="mb-0 mini-banner-title">{{$category->cat_name}}</h1>
+         </div>
+      </div>
+   </div>
+</section>
+
+<section class="main-content mb-5 mt-5">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-3 sm-100">
+               @if(count($data)>0)
+               
+               <div class="box-shadow gray-bg-light">
+                  <div class="category-box">
+                     <h6 class="fw-600">Categories</h6>
+                     <hr>
+                     <div class="accordion">
+
+                        <div class="research-accordion-box">
+                           <div class="research-accordion-item">
+                              <div class="accordion-text">
+                                 <a href="{{url('research-library/category')}}/{{$category->category_url}}">{{$category->cat_name}} </a>
+                              </div>
+                              <div class="icon-research"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                           </div>
+                           <div class="content_research">
+                              <ul class="mb-0 ps-0 cat-submenu">
+                              
+                              @if(count($sub_category)>0)
+                              @foreach($sub_category as $sub_cat)
+                              <li><a href="{{url('research-library/sub-category')}}/{{$category->id}}/{{$sub_cat->id}}">{{$sub_cat->sub_cat_name}}</a></li>
+                              @endforeach
+                              @endif
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+              
+              @endif
+            </div>
+
+            <div class="col-md-9 sm-100">
+               @if(count($data)>0)
+               @foreach($data as $d)
+               <div class="box-shadow">
+                  <div class="row align-items-center mb-3 category-box">
+                     <div class="col-md-3">
+                        <img src="{{url('public/img/market_research_consulting.webp')}}" class="img-fluid" alt="">
+                     </div>
+                     <div class="col-md-9">
+                        <a href="{{ url('research-library') }}/{{($d->id)}}" class="fw-600 d-block blue">{{$d->title}}</a>
+                        <p class="fs-14 mb-2"><?php echo ($d->decription !="") ? substr($d->decription,0,80).'...' : ''; ?> <br>
+                           <span class="read-more">
+                              <a href="{{ url('research-library') }}/{{($d->id)}}" class="read-more-small-btn">Read more</a>
+                           </span>
+                        </p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <ul class="catefory-list ps-0 mb-0">
+                           <li>
+                              <label><i class="fa fa-industry" aria-hidden="true"></i></label>
+                              <span>{{$category->cat_name}}</span>
+                           </li>
+                           <li>
+                              <label> <i class="fa fa-calendar" aria-hidden="true"></i></label>
+                              <span> {{ Carbon\Carbon::parse($d->created_at)->format('M Y') }}</span>
+                           </li>
+                           <li>
+                              <label>Pages</label>
+                              <span>@php echo ($d->no_of_page) ? $d->no_of_page : '0' @endphp</span>
+                           </li>
+                           <li>
+                              <label>Report Code</label>
+                              <span>@php echo ($d->report_code) ? $d->report_code : '---' @endphp </span>
+                           </li>
+                           <li>
+                              <label>USD</label>
+                              <span>@php echo ($d->single_licence_price) ? $d->single_licence_price : '0' @endphp</span>
+                           </li>
+                           <li class="last">
+                              <div class="add-carts">
+                                 <!-- <a href="#" data-toggle="modal" data-target="#placeorder"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add Cart</a> -->
+                                 <a class="cart-btn" href="#" onclick="priceModal('1539')"><i class="fa fa-cart-plus"
+                                       aria-hidden="true"></i> Add Cart</a>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+              @endforeach
+              @endif
+
+              @if(count($data)>9)
+               <div class="row">
+                  <div class="col-md-12">
+                     <nav aria-label="Page navigation example">
+                        {{ $data->links('custom_pagination') }}
+                     </nav>
+                  </div>
+               </div>
+               @endif
+            </div>            
+         </div>         
+      </div>      
+   </div>
+</section>
+@endsection
+

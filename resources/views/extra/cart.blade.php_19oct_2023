@@ -1,0 +1,368 @@
+@extends('layout/header')
+@section('title','Cart')
+@section('content')
+<section class="mini-banner">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <h1 class="mb-0 mini-banner-title">Cart & Checkout</h1>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- cart section start -->
+<section class="report-details mt-4 mb-4">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="wrap-cart">
+               <div class="report-heading d-flex align-items-center justify-content-between ">
+                  <p class="mb-0 white">Reports Details</p>
+                  <p class="mb-0 white">Total Price
+                  </p>
+               </div>
+
+               <div class="row cart-row">
+                  <div class="col-md-12">
+                     <div class="cart-border">
+                        <div class="row">
+                        
+                        <?php $price = 0; ?>
+
+                        @if (count((array) session('cart')) > 0 )
+                        
+                        @php $total = 0 @endphp
+                       
+                        @if(session('cart') )
+                           @foreach(session('cart') as $id => $details)
+                              
+                              @if(strpos($details['price'], ',') !== false)
+                                 @php 
+                                    $price = str_replace(',','',$details['price']);
+                                 @endphp
+                                 
+                              @else
+                                 @php $price = $details['price']; @endphp
+                              @endif
+                              
+                              @php $total += $price * $details['quantity'] @endphp
+                           
+                           
+                              <div class="col-md-2 sm-100 mb-25">
+                                 <div class="product-cart-image">
+                                    <img src="{{ url('public/img/market_research_consulting.webp')}}" width="170" height="100" class="img-responsive img-fluid" alt="">
+                                 </div>
+                              </div>
+                              <div class="col-md-10 sm-100">
+                                 <div
+                                    class="pro-title-price d-flex justify-content-between align-items-center mb-4 ">
+                                    <div>
+                                       <a href="{{url('research-library')}}/{{$details['id']}}">{{$details['name']}}</a>
+                                    </div>
+                                    <div>
+                                       <p class="mb-0">USD {{$details['price']}}</p>
+                                    </div>
+                                 </div>
+                                 <div class="row report-card align-items-center ">
+                                    <div class="col-md-7 sm-100 mb-25">
+                                       <div class="d-flex justify-content-between report-card-inner mb-3">
+                                          <div class="col-md-3">
+                                             <p class="mb-0"> Report Code:</p>
+                                          </div>
+                                          <div class="col-md-9">
+                                             <p class="mb-0">{{$details['report_code']}}</p>
+                                          </div>
+                                       </div>
+                                       <div class="d-flex justify-content-between report-card-inner">
+                                          <div class="col-md-3">
+                                             <p class="mb-0">License Type:</p>
+                                          </div>
+                                          <div class="col-md-9">
+                                             <select class="form-select"
+                                                aria-label="Default select example">
+                                                <option value="1636,3700,Excel Data Pack,add">Excel Data
+                                                   Pack
+                                                </option>
+                                                <option value="4,850" selected="">Single User License
+                                                </option>
+                                                <option value="1636,6000,Multi User License,add">Multi
+                                                   User License
+                                                </option>
+                                                <option value="1636,7500,Enterprise License,add">
+                                                   Enterprise License
+                                                </option>
+                                             </select>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                       <div class="card-close text-end">
+                                          <a href="javascript:void()" class="remove-from-cart" onClick="remove_cart(<?php echo $details['id']; ?>)" ><i
+                                             class="fa fa-trash" aria-hidden="true"></i></a>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-12">
+                                 <hr>
+                              </div>                         
+
+                           @endforeach
+                  
+                           @endif
+
+                           <div class="col-md-12">
+                              <div class="buy_now d-flex align-items-center justify-content-between">
+                                 <div>
+                                    <p class="mb-0">Total Amount: USD {{ $total }}</p>
+                                 </div>
+                                 <div>
+                                    <button class="btns btn-primary">Buy Now</button>
+                                    <button class="btns btn-primary">Continue Shopping</button>
+                                 </div>
+                              </div>
+                           </div>
+
+                           @else
+                              <div class="text-danger">
+                                 Your Cart is empty.
+                              </div>
+                           @endif
+
+
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- cart section end -->
+<!-- select payment option -->
+<section class="pay-option mb-5">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-8 sm-100 mb-25">
+            <div class="wrap-cart">
+               <div class="report-heading">
+                  <p class="mb-0 white">Select Payment Options</p>
+               </div>
+               <div class="row cart-row">
+                  <div class="col-md-12">
+                     <div class="cart-border">
+                        <div class="row pb-4">
+                           <div class="col-md-6">
+                              <div class="login-box text-center">
+                                 <h4>Continue as Guest</h4>
+                                 <button class="btns btn-primary">Buy Now</button>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="login-box text-center">
+                                 <h4>Already have an Account</h4>
+                                 <button class="btns btn-primary">Click Here to Sign In</button>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row mb-4">
+                           <div class="col-md-12">
+                              <div class="option-payments">
+                                 <form>
+                                    <label class="radio-inline pe-2">
+                                    <input type="radio" onchange="paymentType('CC Avanue')"
+                                       name="optradio" checked=""> Credit / Debit Card Payment
+                                    </label>
+                                    <label class="radio-inline pe-2">
+                                    <input type="radio" onchange="paymentType('Wire Transfer')"
+                                       name="optradio">
+                                    Bank Transfer
+                                    </label>
+                                    <label class="radio-inline">
+                                    <input type="radio" onchange="paymentType('paypal')"
+                                       name="optradio"> Paypal
+                                    </label>
+                                 </form>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-12">
+                              <h5 class="mb-0">Enter your Billing Details</h5>
+                              <hr>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="mb-3">
+                                 <p class="mb-1">Company Name *</p>
+                                 <input type="text" class="form-control" placeholder="Company Name">
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="mb-3">
+                                 <p class="mb-1">Contact Person Name *</p>
+                                 <input type="text" class="form-control"
+                                    placeholder="Contact Person Name *">
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="mb-3">
+                                 <p class="mb-1">Designation *
+                                 </p>
+                                 <input type="text" class="form-control" placeholder="Designation *
+                                    ">
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="mb-3">
+                                 <p class="mb-1">Email *
+                                 </p>
+                                 <input type="text" class="form-control" placeholder="Email *
+                                    ">
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="mb-3">
+                                 <p class="mb-1">Phone *
+                                 </p>
+                                 <input type="text" class="form-control" placeholder="Phone *
+                                    ">
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="mb-3">
+                                 <p class="mb-1">Address *
+                                 </p>
+                                 <input type="text" class="form-control" placeholder="Billing Address *
+                                    ">
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="mb-3">
+                                 <p class="mb-1">City
+                                 </p>
+                                 <input type="text" class="form-control" placeholder="Enter city
+                                    ">
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="mb-3">
+                                 <p class="mb-1">Zip Code *
+                                 </p>
+                                 <input type="text" class="form-control" placeholder="Enter Zip Code *
+                                    ">
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="mb-3">
+                                 <p class="mb-1">Country *
+                                 </p>
+                                 <select class="form-select" id="sel1"
+                                    onchange="selectCountry($(this).val())" name="country" required="">
+                                    <option value="">Select Country</option>
+                                    <option value="Andorra">AD-ANDORRA (+376)</option>
+                                    <option value="United arab emirates">AE-UNITED ARAB EMIRATES (+971)
+                                    </option>
+                                    <option value="Afghanistan">AF-AFGHANISTAN (+93)</option>
+                                    <option value="Antigua and barbuda">AG-ANTIGUA AND BARBUDA (+1268)
+                                    </option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="col-md-12">
+                              <div class="mb-3">
+                                 <div class="checkbox">
+                                    <label><input type="checkbox" required="true"> By selecting the
+                                    check box you agree to our<a target="_blank"
+                                       href="https://www.marknteladvisors.com/terms-condition">
+                                    Terms and Conditions</a> &amp;<a target="_blank"
+                                       href="https://www.marknteladvisors.com/refund-policy">
+                                    Return Policy</a></label>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-md-12">
+                              <button type="submit"
+                                 class="btn btn-primary btn-payment submitbtn">Submit</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4 sm-100">
+            <div class="box-shadow">
+               <h6 class="fw-600 blue-title-bg"><i class="fa fa-user fs-14" aria-hidden="true"></i> Need
+                  Assistance?
+               </h6>
+               <div class="mb-2">
+                  <p class="mb-0 fs-14">
+                     <i class="fa fa-envelope me-2 orrange" aria-hidden="true"></i> WRITE AN EMAIL
+                  </p>
+                  <a href="mailto:sales@marknteladvisors.com">sales@marknteladvisors.com</a>
+               </div>
+               <div>
+                  <p class="mb-0 fs-14"><i class="fa fa-phone me-2 orrange" aria-hidden="true"></i>CALL US</p>
+                  <a class="fs-14" href="tel:+1 628 895 8081, +91 120 4278433">+1 628 895 8081, +91 120
+                  4278433</a>
+               </div>
+            </div>
+            <div class="box-shadow">
+               <h6 class="fw-600 blue-title-bg"><i class="fa fa-lock me-2 fs-14 "></i>100% Safe &amp; Secure
+               </h6>
+               <hr>
+               <p class="fs-14">
+                  Strongest encryption on the website to make your purchase safe and secure
+               </p>
+               <img src="img/paypal-logo.png" class="img-fluid" alt="">
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+<script type="text/javascript">
+  
+    $(".update-cart").change(function (e) {
+        e.preventDefault();
+  
+        var ele = $(this);
+  
+        $.ajax({
+            url: '{{ route('update.cart') }}',
+            method: "patch",
+            data: {
+                _token: '{{ csrf_token() }}', 
+                id: ele.parents("tr").attr("data-id"), 
+                quantity: ele.parents("tr").find(".quantity").val()
+            },
+            success: function (response) {
+               window.location.reload();
+            }
+        });
+    });
+  
+    function remove_cart(id){
+        
+        if(confirm("Are you sure want to remove?")) {
+            $.ajax({
+                url: '{{ route('remove.from.cart') }}',
+                method: "DELETE",
+                data: {
+                    _token: '{{ csrf_token() }}', 
+                    id: id
+                },
+                success: function (response) {
+                    window.location.reload();
+                }
+            });
+        }
+    }
+  
+</script>
+
+@endsection
