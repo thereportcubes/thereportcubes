@@ -1,0 +1,45 @@
+User-agent: *
+
+Disallow:/search/search-result?search_form
+
+Disallow:/TRC
+
+Disallow:/signin  
+
+Disallow:/press-release?page
+
+Disallow:/infographics?page
+
+Disallow:/research-library?page
+
+Disallow:/index.php
+
+Disallow:/index.php/*
+
+Disallow:/report_search
+
+
+
+Sitemap: https://www.thereportcubes.com/sitemap.xml
+
+Sitemap: https://www.thereportcubes.com/press-release.xml
+
+Sitemap: https://www.thereportcubes.com/infographics.xml
+
+Sitemap: https://www.thereportcubes.com/report-store/food-beverages.xml
+
+Sitemap: https://www.thereportcubes.com/report-store/healthcare.xml
+
+Sitemap: https://www.thereportcubes.com/report-store/automotive-transport.xml
+
+Sitemap: https://www.thereportcubes.com/report-store/chemicals-materials.xml
+
+Sitemap: https://www.thereportcubes.com/report-store/consumer-goods-services.xml
+
+Sitemap: https://www.thereportcubes.com/report-store/energy-natural-resources.xml
+
+Sitemap: https://www.thereportcubes.com/report-store/information-technology.xml
+
+Sitemap: https://www.thereportcubes.com/report-store/manufacturing-construction.xml
+
+Sitemap: https://www.thereportcubes.com/other-pages.xml
